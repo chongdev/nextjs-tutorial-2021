@@ -1,12 +1,25 @@
 import React from "react";
-import Line from "next/link";
+import Link from "next/link";
 
 export default function index() {
   return (
     <div>
-      <h1>Hello, Next tutorial 2021</h1>
+      <h1>This Home</h1>
 
-      <nav></nav>
+      <div className="container">
+  <div className="row">
+    <div className="col-sm">
+      One of three columns
+    </div>
+    <div className="col-sm">
+      One of three columns
+    </div>
+    <div className="col-sm">
+      One of three columns
+    </div>
+  </div>
+</div>
+
     </div>
   );
 }
