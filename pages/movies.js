@@ -1,5 +1,12 @@
 import React from "react";
+import Image from "next/image";
+
 const BASEIMG = "https://image.tmdb.org/t/p/w500"; // w1280
+
+const posterLoader = ({ src }) => {
+  return BASEIMG + src;
+};
+
 export default function Movies({ randomData, movies }) {
   return (
     <div>
@@ -15,13 +22,13 @@ export default function Movies({ randomData, movies }) {
                 className="media"
                 style={{ display: `flex`, alignItems: `flex-start` }}
               >
-                <div style={{ width: 100 }}>
-                  <img
-                    style={{ width: `100%` }}
-                    src={BASEIMG + movie.poster_path}
+                {/* <div style={{ width: 100 }}>
+                  <Image
+                    loader={posterLoader}
+                    src={movie.poster_path}
                     alt={movie.original_title}
                   />
-                </div>
+                </div> */}
 
                 <div
                   className="media-body"
