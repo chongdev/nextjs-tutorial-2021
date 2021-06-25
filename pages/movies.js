@@ -3,8 +3,8 @@ import Image from "next/image";
 
 const BASEIMG = "https://image.tmdb.org/t/p/w500"; // w1280
 
-const posterLoader = ({ src }) => {
-  return BASEIMG + src;
+const posterLoader = ({ src, width, quality }) => {
+  return BASEIMG + `${src}?q=${quality || 75}`;
 };
 
 export default function Movies({ randomData, movies }) {
@@ -22,13 +22,21 @@ export default function Movies({ randomData, movies }) {
                 className="media"
                 style={{ display: `flex`, alignItems: `flex-start` }}
               >
-                {/* <div style={{ width: 100 }}>
+                <div style={{ width: 100 }}>
+                  {/* <img
+                    style={{ width: `100%` }}
+                    src={BASEIMG + movie.poster_path}
+                    alt={movie.original_title}
+                  /> */}
+
                   <Image
                     loader={posterLoader}
                     src={movie.poster_path}
                     alt={movie.original_title}
+                    width={100}
+                    height={150}
                   />
-                </div> */}
+                </div>
 
                 <div
                   className="media-body"
@@ -51,7 +59,6 @@ export default function Movies({ randomData, movies }) {
       </div>
 
       {/* popularity poster_path release_date original_language */}
-
       {/* {<span>{JSON.stringify(movies)}</span>} */}
     </div>
   );
